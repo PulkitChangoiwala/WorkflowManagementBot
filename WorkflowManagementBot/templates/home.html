@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{%  block title %} Well Hello There! {% endblock %}
+
+{%  block content %} 
+<h1> Welcome to the home page</h1>
+<a href="{% url 'auths:signup' %}">Signup</a>
+<a href="{% url 'auths:signin' %}">Signin</a>
+{% endblock %}

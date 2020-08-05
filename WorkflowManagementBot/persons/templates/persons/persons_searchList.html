@@ -1,0 +1,14 @@
+
+{% if persons.count > 0 %}
+<ul>
+    {% for person in persons %}
+    <li><h6>{{ person.name }}</h6></li>
+    {{ person.company }}
+      <br />
+    {{ person.designation }}
+    {% endfor %}
+    </ul>
+
+{% else %}
+<li>Nothing to show</li>
+{% endif %}

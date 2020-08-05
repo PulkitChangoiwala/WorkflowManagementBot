@@ -1,0 +1,12 @@
+
+{% if persons %}
+<ul>
+    {% for person in persons %}
+    <li><h6>{{ person.name }}</h6></li>
+    {{ person.company }}
+    {% endfor %}
+</ul>
+
+{% else %}
+    <p>No Speaker Found</p>
+{% endif %}

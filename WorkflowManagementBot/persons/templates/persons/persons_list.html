@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{%  block title %} Speakers{% endblock %}
+
+{%  block content %}
+
+
+
+<h4> Speakers</h4>
+<div class= "row">
+    <div class="col-6 align-left">
+        <i id = "search-icon" class="fas fa-search"></i>
+        <form id="search_form">
+            {% csrf_token %}
+        <input id="user-input-name" placeholder="Name">
+        <input id="user-input-company" placeholder="Company">
+        <input id="user-input-designation" placeholder="Designation">
+        </form>
+        <a href="{% url 'persons:form' %}">Add Speaker</a>
+         <a href="{% url 'persons:g_sheet_import' %}">Import</a>
+    </div>
+
+    <div id="replaceable-content" class = "col-6">
+    </div>
+    <div id="mainList" class = "container">
+     <ul>
+    {% for person in persons %}
+    <li><h6>{{ person.name }}</h6></li>
+    {{ person.company }}
+         <br />
+         {{ person.designation }}
+         <br/>
+         {{person.email_id}}
+    {% endfor %}
+    </ul>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById("search_form").reset();
+
+</script>
+
+<!-- {%  include 'persons/persons-results-partial.html'  %} -->
+
+{% endblock %}
+
